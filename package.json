@@ -1,0 +1,9 @@
+{
+  "name": "pitch_zone",
+  "version": "1.0.0",
+  "main": "pitch.js",
+  "license": "MIT",
+  "dependencies": {
+    "ts-node": "^7.0.0"
+  }
+}
