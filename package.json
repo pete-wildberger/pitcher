@@ -1,9 +1,10 @@
 {
-  "name": "pitch_zone",
-  "version": "1.0.0",
-  "main": "pitch.js",
-  "license": "MIT",
-  "dependencies": {
-    "ts-node": "^7.0.0"
-  }
+	"name": "pitch_zone",
+	"version": "1.0.0",
+	"main": "pitch.js",
+	"license": "MIT",
+	"dependencies": {
+		"random-name": "^0.1.2",
+		"ts-node": "^7.0.0"
+	}
 }

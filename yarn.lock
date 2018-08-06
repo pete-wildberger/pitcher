@@ -32,6 +32,10 @@ mkdirp@^0.5.1:
   dependencies:
     minimist "0.0.8"
 
+random-name@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/random-name/-/random-name-0.1.2.tgz#20a1ad0efce9976764c5dd3c418c7018b57e816d"
+
 source-map-support@^0.5.6:
   version "0.5.6"
   resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.5.6.tgz#4435cee46b1aab62b8e8610ce60f788091c51c13"
