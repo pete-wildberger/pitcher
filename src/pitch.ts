@@ -17,7 +17,7 @@ which is around a 69 strike to 31 ball ratio.  A player with a control value of
 100 will result in around a 70/30 strike to ball ratio.
 */
 
-function pitch_roll(arr: number[]): number {
+export function pitch_roll(arr: number[]): number {
 	const roll: number = Math.random() * 100;
 	if (roll > 0 && roll < arr[0]) {
 		return 0;
@@ -34,7 +34,7 @@ function pitch_roll(arr: number[]): number {
 		return 4;
 	}
 }
-function zone_prob(control: number): { x: number; y: number } {
+export function zone_prob(control: number): { x: number; y: number } {
 	let x: number;
 	let y: number;
 	let prob_arr: number[] = [];
@@ -54,7 +54,7 @@ function zone_prob(control: number): { x: number; y: number } {
 	return { x, y };
 }
 
-function test_strike(arr: any[]): { strike: number; ball: number } {
+export function test_strike(arr: any[]): { strike: number; ball: number } {
 	let result = { strike: 0, ball: 0 };
 	arr.forEach(item => {
 		if (item.x > 0 && item.x < 4 && (item.y > 0 && item.y < 4)) {
@@ -65,16 +65,3 @@ function test_strike(arr: any[]): { strike: number; ball: number } {
 	});
 	return result;
 }
-
-const main = function() {
-	const control: number = 1.0;
-	let test_arr: any[] = [];
-	for (let i: number = 0; i < 100; i += 1) {
-		test_arr.push(zone_prob(control));
-	}
-	var player = new BuildPlayer();
-	console.log(player);
-	console.log(test_strike(test_arr));
-};
-
-main();

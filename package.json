@@ -1,7 +1,7 @@
 {
 	"name": "pitch_zone",
 	"version": "1.0.0",
-	"main": "pitch.js",
+	"main": "main.js",
 	"license": "MIT",
 	"dependencies": {
 		"random-name": "^0.1.2",

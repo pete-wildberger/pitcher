@@ -1,4 +1,5 @@
 export interface I_Player {
+	[key: string]: any;
 	name: string;
 	age: number;
 	attitude: number;
@@ -24,6 +25,7 @@ export interface I_Player {
 		ground: number;
 	};
 	defense: {
+		position: string
 		fielding: number;
 		arm: number;
 		positions: {
@@ -39,7 +41,45 @@ export interface I_Player {
 
 export class Player<I_Player> {
 	public name: string;
-	constructor(name: string) {
+	public position: string;
+	public age: number;
+	public attitude: number;
+	public experience: number;
+	public clutch: number;
+	public endurance: number;
+	public potential: number;
+	public contract: {
+		salary: number;
+		years: number;
+	};
+	public hitting: {
+		contact: number;
+		power: number;
+		discipline: number;
+	};
+	public pitching: {
+		control: number;
+		power: number;
+		stamina: number;
+		spin: number;
+		composure: number;
+		ground: number;
+	};
+	public defense: {
+		position: string
+		fielding: number;
+		arm: number;
+		positions: {
+			of: number;
+			ci: number;
+			mi: number;
+			c: number;
+			p: number;
+		};
+		callgame: number;
+	};
+	constructor(name: string, position: string) {
 		this.name = name;
+		this.position = position;
 	}
 }

@@ -3,10 +3,11 @@ import * as random from 'random-name';
 import { randomIntFromInterval } from '../utils';
 export class BuildPlayer {
 	public name: string;
+	public position: string
 	constructor() {
 		this.name = random.first() + ' ' + random.last();
 	}
-	main = (): Player<I_Player> => {
-		return new Player(this.name);
+	make_player = (position:string): Player<I_Player> => {
+		return new Player(this.name, position);
 	};
 }
