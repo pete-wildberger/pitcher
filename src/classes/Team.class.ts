@@ -16,6 +16,7 @@ export interface player_team {
 	bench: Array<I_Player>;
 	starters: Array<I_Player>;
 	relievers: Array<I_Player>;
+	dl: Array<I_Player>;
 }
 export class Team<I_Team> {
 	mascot: string;
@@ -31,7 +32,8 @@ export class Team<I_Team> {
 			bench: players,
 			lineup: [],
 			starters: [],
-			relievers: []
+			relievers: [],
+			dl: []
 		}
 		// this.current_payroll = this.calcPayroll(this.team);
 	}

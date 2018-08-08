@@ -1,4 +1,5 @@
 import { BuildPlayer } from './classes/BuildPlayer.class';
+import { pitch_roll } from './utils';
 /* Randomly(taking 'control' attribute into account) generates coordinates for a
 pitch based off of a five x and five y strike zone e.g.
 
@@ -17,23 +18,6 @@ which is around a 69 strike to 31 ball ratio.  A player with a control value of
 100 will result in around a 70/30 strike to ball ratio.
 */
 
-export function pitch_roll(arr: number[]): number {
-	const roll: number = Math.random() * 100;
-	if (roll > 0 && roll < arr[0]) {
-		return 0;
-	}
-	if (roll > arr[0] && roll < arr[1]) {
-		return 1;
-	}
-	if (roll > arr[1] && roll < arr[2]) {
-		return 2;
-	}
-	if (roll > arr[2] && roll < arr[3]) {
-		return 3;
-	} else {
-		return 4;
-	}
-}
 export function zone_prob(control: number): { x: number; y: number } {
 	let x: number;
 	let y: number;
@@ -48,9 +32,10 @@ export function zone_prob(control: number): { x: number; y: number } {
 			prob_arr.push(prob_arr[i - 1] + (control * 10 + 72) / 3);
 		}
 	}
+	const roll: number = Math.random() * 100;
 	console.log(prob_arr);
-	x = pitch_roll(prob_arr);
-	y = pitch_roll(prob_arr);
+	x = pitch_roll(prob_arr, roll);
+	y = pitch_roll(prob_arr, roll);
 	return { x, y };
 }
 
