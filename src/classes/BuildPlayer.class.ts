@@ -9,7 +9,7 @@ export class BuildPlayer {
 		this.name = random.first() + ' ' + random.last();
 	}
 	make_player = (position: string, talent: number): Player<I_Player> => {
-		return new Player(this.name, position, talent, this.generate_defense(position, talent), this.generate_hitting(position, talent));
+		return new Player(this.name, this.generate_age(talent), position, talent, this.generate_defense(position, talent), this.generate_hitting(position, talent));
 	};
 	generate_defense = (position: string, talent: number): any => {
 		return {
@@ -20,6 +20,14 @@ export class BuildPlayer {
 		};
 	};
 
+	generate_age(talent: number): number {
+		const min_age: number = (29 - Math.floor(talent/10));
+		let max_age:number = min_age + Math.floor(10/(talent/10))
+		if(max_age > 40){
+			max_age = 40;
+		}
+		return randomIntFromInterval(min_age, max_age);;
+	}
 	generate_hitting(position: string, talent: number): any {
 		let result: { [key: string]: number } = {
 			contact: 0,

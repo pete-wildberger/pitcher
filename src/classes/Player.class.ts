@@ -76,8 +76,9 @@ export class Player<I_Player> {
 		};
 		callgame: number;
 	};
-	constructor(name: string, position: string, talent: number, defense: any, hitting: any) {
+	constructor(name: string, age:number, position: string, talent: number, defense: any, hitting: any) {
 		this.name = name;
+		this.age = age;
 		this.position = position;
 		this.potential = talent;
 		this.defense = defense;

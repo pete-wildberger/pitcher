@@ -69,7 +69,7 @@ export class BuildTeam {
 		x < 30 Replacement
 		*/
 		// const talent_probability: number[] = [30, 82, 96, 99];
-		const roll: number = randomIntFromInterval(0, 100);
+		const roll: number = randomIntFromInterval(1, 100);
 		return roll;
 	}
 }
