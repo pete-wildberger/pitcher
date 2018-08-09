@@ -1,7 +1,7 @@
 import { Player, I_Player } from './Player.class';
 import { BuildPlayer } from './BuildPlayer.class';
 import { Team, I_Team } from './Team.class';
-import { randomIntFromInterval, pitch_roll } from '../utils';
+import { randomIntFromInterval, pitch_roll, fielders } from '../utils';
 
 export interface team_by_position {
 	[key: string]: number;
@@ -22,6 +22,7 @@ export interface team_by_position {
 export class BuildTeam {
 	players: Array<I_Player>;
 	team_count: team_by_position;
+	fielders: string[];
 	constructor() {
 		this.team_count = {
 			c: 1,
@@ -37,6 +38,7 @@ export class BuildTeam {
 			rp: 6,
 			cl: 1
 		};
+		this.fielders = fielders;
 	}
 	make_team = (): I_Team => {
 		let position_keys: string[] = Object.keys(this.team_count);
@@ -45,7 +47,11 @@ export class BuildTeam {
 			let idx = randomIntFromInterval(0, position_keys.length - 1);
 			if (this.team_count[position_keys[idx]] > 0) {
 				let builder = new BuildPlayer();
-				players.push(builder.make_player(position_keys[idx], this.talent_generator()));
+				let pos: string = position_keys[idx];
+				if (pos === 'bench') {
+					pos = this.fielders[randomIntFromInterval(0, 7)];
+				}
+				players.push(builder.make_player(pos, this.talent_generator()));
 				this.team_count[position_keys[idx]] -= 1;
 				if (this.team_count[position_keys[idx]] === 0) {
 					position_keys.splice(idx, 1);

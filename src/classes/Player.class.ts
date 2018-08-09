@@ -25,7 +25,6 @@ export interface I_Player {
 		ground: number;
 	};
 	defense: {
-		position: string;
 		fielding: number;
 		arm: number;
 		positions: {
@@ -66,7 +65,6 @@ export class Player<I_Player> {
 		ground: number;
 	};
 	public defense: {
-		position: string;
 		fielding: number;
 		arm: number;
 		positions: {
@@ -78,9 +76,11 @@ export class Player<I_Player> {
 		};
 		callgame: number;
 	};
-	constructor(name: string, position: string, talent: number) {
+	constructor(name: string, position: string, talent: number, defense: any, hitting: any) {
 		this.name = name;
 		this.position = position;
 		this.potential = talent;
+		this.defense = defense;
+		this.hitting = hitting;
 	}
 }
